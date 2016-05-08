@@ -16,12 +16,16 @@ player2.name = prompt('What is your Name Player 2');
  function setPlayerNames(){
 
 	 	document.getElementById('player_one_name').innerHTML = player1.name +
-	 	' is: ' +player1.letter + ' Wins: ' + player1.wins;
-		document.getElementById('player_two_name').innerHTML = player2.name +
-		' is: ' +player2.letter  + ' Wins: ' + player2.wins;
- }
-setPlayerNames();
+	 	' is: ' +player1.letter;
+	 	document.getElementById('player_one_wins').innerHTML = 'Wins: ' + player1.wins;
 
+	 	document.getElementById('player_two_name').innerHTML = player2.name +
+	 	' is: ' +player2.letter;
+	 	document.getElementById('player_two_wins').innerHTML = 'Wins: ' + player2.wins;
+		
+ }
+
+setPlayerNames();
 
 var clickTicker = 0;
 
@@ -29,7 +33,6 @@ function checkForStalemate(ticker){
 	if (ticker >= 9) {
 		alert("Cats!");
 	};
-
 }
 
 function checkForWin(){
@@ -57,9 +60,6 @@ function checkForWin(){
 	if (boxes[6].clicked == true && boxes[6].letter == boxes[4].letter && boxes[6].letter == boxes[2].letter ) {
 		resetGame();
 	};
-
-
-
 }
 
 function resetGame(){
@@ -75,9 +75,6 @@ function resetGame(){
 		boxes[i].letter = '';
 		boxes[i].innerHTML = '';
 	}
-
-	
-
 }
 
 
@@ -97,13 +94,9 @@ function switchPlayer(){
 
 for(var i = 0; i < boxes.length; i++) {
   //var box = boxes[i];
-
   boxes[i].clicked = false;
   //box.letter = "";
   boxes[i].letter = "";
-
-
-
   boxes[i].addEventListener('click', function() {
 
   	if (this.clicked == false) {
